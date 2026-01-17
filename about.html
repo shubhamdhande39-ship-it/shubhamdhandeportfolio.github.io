@@ -16,26 +16,18 @@
   <a href="index.html">Home</a>
   <a class="active" href="about.html">About Me</a>
   <a href="work.html">My Work</a>
-  <a href="#contact">Contact Me</a>
+  <a href="#contact" onclick="showContact()">Contact Me</a>
 </nav>
 
 <section class="section">
   <h1 class="about-title">About<br>Me</h1>
 
   <p style="margin-top:24px;">
-    I am a Motion Graphic Designer specializing in cinematic motion graphics,
-    AI-driven visuals, and high-impact video content. My work focuses on
-    transforming ideas into compelling visual stories that connect with
-    audiences emotionally and visually.
-    <br><br>
-    I enjoy exploring new tools and workflows, especially AI-assisted techniques,
-    to push creative boundaries while maintaining clean, professional execution.
-    My goal is to deliver visuals that are not only engaging but also aligned
-    with the brand’s message and intent.
+    I am a Motion Graphic Designer specializing in cinematic motion graphics, AI-driven visuals, and high-impact video content, focused on transforming ideas into compelling visual stories that connect with audiences emotionally and visually, while exploring modern tools and AI-assisted workflows to deliver clean, professional, and brand-aligned creative solutions.
   </p>
 </section>
 
-<section class="section contact" id="contact">
+<section class="section contact-section" id="contact">
   <p>📞 8169042191</p>
   <p>✉️ shubhamdhande39@gmail.com</p>
 </section>
@@ -44,6 +36,14 @@
   <a href="https://www.behance.net/" target="_blank"><i class="fab fa-behance"></i></a>
   <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 </footer>
+
+<script>
+function showContact() {
+  const contact = document.getElementById('contact');
+  contact.style.display = 'block';
+  contact.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
