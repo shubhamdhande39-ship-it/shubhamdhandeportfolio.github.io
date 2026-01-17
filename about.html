@@ -6,8 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <style>
+*{cursor:none}
 body{
   margin:0;font-family:'Poppins',sans-serif;color:#fff;
   background:#945be9;
@@ -15,14 +17,18 @@ body{
     radial-gradient(circle at 20% 30%, rgba(255,255,255,.08), transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(255,255,255,.06), transparent 40%);
 }
-nav{position:fixed;top:28px;width:100%;display:flex;justify-content:center;gap:24px}
+nav,footer{position:fixed;width:100%;display:flex;justify-content:center;gap:24px}
+nav{top:28px}
+footer{bottom:24px;font-size:26px}
 nav a{color:#fff;text-decoration:none;padding:10px 22px;border-radius:24px}
 nav a.active,nav a:hover{background:#000}
-.section{min-height:100vh;padding:120px 12%}
+.section{padding:120px 12%}
 h1{font-size:40px;font-weight:700;margin-bottom:24px}
-p{font-size:20px;font-weight:500;line-height:1.7;max-width:900px}
-.story{opacity:0;transform:translateY(40px);transition:.9s}
-.story.active{opacity:1;transform:translateY(0)}
+p{font-size:20px;line-height:1.7;max-width:900px}
+
+/* CURSOR */
+.cursor{width:18px;height:18px;border-radius:50%;background:#fff;position:fixed;pointer-events:none}
+.cursor.active{width:36px;height:36px;background:#000}
 </style>
 </head>
 
@@ -36,28 +42,34 @@ p{font-size:20px;font-weight:500;line-height:1.7;max-width:900px}
 </nav>
 
 <section class="section">
-  <h1 class="story">About Me</h1>
-  <p class="story">
+  <h1>About Me</h1>
+  <p>
     I am a Motion Graphic Designer specializing in cinematic motion graphics,
     AI-driven visuals, and high-impact video content. My work focuses on
     transforming ideas into compelling visual stories that connect with
-    audiences emotionally and visually.
-    <br><br>
-    I enjoy exploring new tools and workflows, especially AI-assisted techniques,
-    to push creative boundaries while maintaining clean, professional execution.
-    My goal is to deliver visuals that are not only engaging but also aligned
-    with the brand’s message and intent.
+    audiences emotionally and visually. I enjoy exploring new tools and
+    workflows, especially AI-assisted techniques, to push creative boundaries
+    while maintaining clean, professional execution. My goal is to deliver
+    visuals that are not only engaging but also aligned with the brand’s
+    message and intent.
   </p>
 </section>
 
+<footer>
+  <i class='bx bxl-behance'></i>
+  <i class='bx bxl-linkedin'></i>
+</footer>
+
+<div class="cursor"></div>
+
 <script>
-document.querySelectorAll('.story').forEach(el=>{
-  if(el.getBoundingClientRect().top<window.innerHeight-120)el.classList.add('active')
+const c=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+  c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
 });
-window.addEventListener('scroll',()=>{
-  document.querySelectorAll('.story').forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-120)el.classList.add('active')
-  });
+document.querySelectorAll('a,i').forEach(el=>{
+  el.onmouseenter=()=>c.classList.add('active');
+  el.onmouseleave=()=>c.classList.remove('active');
 });
 </script>
 
