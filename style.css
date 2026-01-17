@@ -1,6 +1,4 @@
-/* =====================================================
-   RESET & BASE
-===================================================== */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -12,54 +10,44 @@ html {
   scroll-behavior: smooth;
 }
 
-/* =====================================================
-   DESIGN TOKENS
-===================================================== */
+/* ================= VARIABLES ================= */
 :root {
   --purple: #945be9;
   --green: #108e06;
   --white: #ffffff;
   --black: #000000;
-  --text: #ffffff;
 }
 
-/* =====================================================
-   BODY + PREMIUM TEXTURE
-===================================================== */
+/* ================= BODY ================= */
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--purple);
-  color: var(--text);
+  color: var(--white);
   min-height: 100vh;
 
-  /* Premium texture */
   background-image:
-    radial-gradient(circle at 18% 28%, rgba(255,255,255,0.08), transparent 42%),
-    radial-gradient(circle at 82% 72%, rgba(255,255,255,0.06), transparent 42%),
+    radial-gradient(circle at 18% 28%, rgba(255,255,255,.08), transparent 42%),
+    radial-gradient(circle at 82% 72%, rgba(255,255,255,.06), transparent 42%),
     repeating-linear-gradient(
       45deg,
-      rgba(255,255,255,0.025),
-      rgba(255,255,255,0.025) 1px,
+      rgba(255,255,255,.025),
+      rgba(255,255,255,.025) 1px,
       transparent 1px,
       transparent 6px
     );
 }
 
-/* =====================================================
-   PAGE TRANSITION
-===================================================== */
+/* ================= PAGE TRANSITION ================= */
 .page {
   opacity: 0;
-  animation: pageFade 0.8s ease forwards;
+  animation: fadeIn 0.8s ease forwards;
 }
 
-@keyframes pageFade {
+@keyframes fadeIn {
   to { opacity: 1; }
 }
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* ================= NAV ================= */
 nav {
   position: fixed;
   top: 26px;
@@ -76,17 +64,14 @@ nav a {
   padding: 10px 22px;
   border-radius: 24px;
   font-weight: 500;
-  transition: background 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
+nav a.active,
+nav a:hover {
   background: var(--black);
 }
 
-/* =====================================================
-   FOOTER / CONTACT
-===================================================== */
+/* ================= FOOTER ================= */
 footer {
   position: fixed;
   bottom: 22px;
@@ -95,13 +80,9 @@ footer {
   justify-content: center;
   gap: 28px;
   font-size: 15px;
-  font-weight: 500;
-  z-index: 40;
 }
 
-/* =====================================================
-   TYPOGRAPHY HELPERS
-===================================================== */
+/* ================= SECTIONS ================= */
 .section {
   padding: 140px 10%;
 }
@@ -117,9 +98,7 @@ p {
   max-width: 900px;
 }
 
-/* =====================================================
-   SCROLL STORYTELLING
-===================================================== */
+/* ================= STORY ANIMATION ================= */
 .story {
   opacity: 0;
   transform: translateY(40px);
@@ -131,9 +110,7 @@ p {
   transform: translateY(0);
 }
 
-/* =====================================================
-   WORK CARD (IFFCO)
-===================================================== */
+/* ================= CARD ================= */
 .card {
   width: 280px;
   height: 750px;
@@ -150,7 +127,6 @@ p {
   transform: scale(1.05);
 }
 
-/* Badge (01) */
 .badge {
   width: 86px;
   height: 86px;
@@ -163,16 +139,13 @@ p {
   margin: 0 auto 24px;
 }
 
-/* =====================================================
-   VIDEO GRID + FRAMES
-===================================================== */
+/* ================= VIDEO GRID ================= */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
-/* 1080x1920 Frame */
 .video-frame {
   aspect-ratio: 9 / 16;
   border: 20px solid var(--white);
@@ -187,9 +160,7 @@ p {
   border: none;
 }
 
-/* =====================================================
-   DPI-ACCURATE CURSOR (NO LAG)
-===================================================== */
+/* ================= DPI CURSOR ================= */
 .cursor {
   position: fixed;
   top: 0;
@@ -200,10 +171,7 @@ p {
   background: var(--white);
   pointer-events: none;
   z-index: 9999;
-
-  /* Critical for DPI accuracy */
   will-change: transform;
-  transform: translate3d(0,0,0);
 }
 
 .cursor.active {
@@ -211,9 +179,7 @@ p {
   background: var(--black);
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -223,13 +189,5 @@ p {
 @media (max-width: 640px) {
   .video-grid {
     grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  p {
-    font-size: 18px;
   }
 }
