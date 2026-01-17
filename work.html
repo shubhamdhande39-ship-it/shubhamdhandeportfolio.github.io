@@ -5,59 +5,9 @@
 <title>My Work | IFFCO Fertilizer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
-<style>
-/* IFFCO CARD */
-.iffco-card {
-  width: 280px;
-  height: 750px;
-  background: #ffffff;
-  color: #000000;
-  border-radius: 28px;
-  padding: 24px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.iffco-card img {
-  width: 100%;
-  margin: 20px 0;
-}
-
-.iffco-card p {
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* VIDEO SECTION */
-.video-section {
-  display: none;
-  background: #108e06;
-  padding: 120px 10%;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-.video-frame {
-  aspect-ratio: 9 / 16;
-  background: #ffffff;
-  border: 20px solid #ffffff;
-  border-radius: 28px;
-  overflow: hidden;
-}
-
-.video-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -72,6 +22,7 @@
 <!-- IFFCO INTRO -->
 <section class="section" style="display:flex;justify-content:center;">
   <div class="iffco-card" onclick="showVideos()">
+
     <div style="
       width:86px;height:86px;border-radius:50%;
       border:8px solid #000;
@@ -89,7 +40,8 @@
       processes, product benefits, and farmer-centric messaging.
       <br><br>
       Handled AI-based visual generation, motion design, scene composition,
-      and narrative flow, ensuring accuracy and strong storytelling.
+      and narrative flow, ensuring the content remained accurate, engaging,
+      and aligned with IFFCO’s brand values.
     </p>
   </div>
 </section>
@@ -108,14 +60,23 @@
   </div>
 </section>
 
-<footer id="contact">
-  📞 8169042191 &nbsp;&nbsp; ✉️ shubhamdhande39@gmail.com
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <p>📞 8169042191</p>
+  <p>✉️ shubhamdhande39@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://www.behance.net/" target="_blank"><i class="fab fa-behance"></i></a>
+  <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 </footer>
 
 <script>
 function showVideos() {
-  document.getElementById('videoSection').style.display = 'block';
-  document.getElementById('videoSection').scrollIntoView({ behavior: 'smooth' });
+  const section = document.getElementById('videoSection');
+  section.style.display = 'block';
+  section.scrollIntoView({ behavior: 'smooth' });
 }
 </script>
 
