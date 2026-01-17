@@ -1,80 +1,55 @@
-/* ================= RESET ================= */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
 }
 
+/* BASE */
 html {
   scroll-behavior: smooth;
 }
 
-/* ================= VARIABLES ================= */
-:root {
-  --purple: #945be9;
-  --green: #108e06;
-  --white: #ffffff;
-  --black: #000000;
-}
-
-/* ================= BODY ================= */
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--purple);
-  color: var(--white);
+  background: #945be9;
+  color: #ffffff;
   min-height: 100vh;
 
+  /* subtle premium texture */
   background-image:
-    radial-gradient(circle at 18% 28%, rgba(255,255,255,.08), transparent 42%),
-    radial-gradient(circle at 82% 72%, rgba(255,255,255,.06), transparent 42%),
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,.025),
-      rgba(255,255,255,.025) 1px,
-      transparent 1px,
-      transparent 6px
-    );
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 40%);
 }
 
-/* ================= PAGE TRANSITION ================= */
-.page {
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* ================= NAV ================= */
+/* NAV */
 nav {
   position: fixed;
-  top: 26px;
+  top: 24px;
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 22px;
-  z-index: 50;
+  gap: 24px;
+  z-index: 10;
 }
 
 nav a {
-  color: var(--white);
+  color: #ffffff;
   text-decoration: none;
   padding: 10px 22px;
-  border-radius: 24px;
+  border-radius: 22px;
   font-weight: 500;
 }
 
-nav a.active,
-nav a:hover {
-  background: var(--black);
+nav a:hover,
+nav a.active {
+  background: #000000;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER / CONTACT */
 footer {
   position: fixed;
-  bottom: 22px;
+  bottom: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -82,7 +57,7 @@ footer {
   font-size: 15px;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 .section {
   padding: 140px 10%;
 }
@@ -94,52 +69,11 @@ h1 {
 
 p {
   font-size: 20px;
-  line-height: 1.8;
+  line-height: 1.7;
   max-width: 900px;
 }
 
-/* ================= STORY ANIMATION ================= */
-.story {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s ease;
-}
-
-.story.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ================= CARD ================= */
-.card {
-  width: 280px;
-  height: 750px;
-  background: var(--white);
-  color: var(--black);
-  border-radius: 28px;
-  padding: 24px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.4s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.badge {
-  width: 86px;
-  height: 86px;
-  border-radius: 50%;
-  border: 8px solid var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  margin: 0 auto 24px;
-}
-
-/* ================= VIDEO GRID ================= */
+/* VIDEO GRID */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -148,9 +82,9 @@ p {
 
 .video-frame {
   aspect-ratio: 9 / 16;
-  border: 20px solid var(--white);
+  background: #ffffff;
+  border: 20px solid #ffffff;
   border-radius: 28px;
-  background: var(--white);
   overflow: hidden;
 }
 
@@ -160,26 +94,7 @@ p {
   border: none;
 }
 
-/* ================= DPI CURSOR ================= */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--white);
-  pointer-events: none;
-  z-index: 9999;
-  will-change: transform;
-}
-
-.cursor.active {
-  transform: scale(2);
-  background: var(--black);
-}
-
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -189,5 +104,13 @@ p {
 @media (max-width: 640px) {
   .video-grid {
     grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 18px;
   }
 }
