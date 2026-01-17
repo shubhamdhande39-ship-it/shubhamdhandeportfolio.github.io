@@ -1,26 +1,26 @@
-/* CURSOR FLOW */
+/* ================= CURSOR FLOW ================= */
 const cursor = document.querySelector('.cursor');
-let x = 0, y = 0, tx = 0, ty = 0;
+let cx = 0, cy = 0, tx = 0, ty = 0;
 
 document.addEventListener('mousemove', e => {
   tx = e.clientX;
   ty = e.clientY;
 });
 
-function animateCursor() {
-  x += (tx - x) * 0.15;
-  y += (ty - y) * 0.15;
-  cursor.style.transform = `translate(${x}px, ${y}px)`;
-  requestAnimationFrame(animateCursor);
+function cursorLoop() {
+  cx += (tx - cx) * 0.18;
+  cy += (ty - cy) * 0.18;
+  cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+  requestAnimationFrame(cursorLoop);
 }
-animateCursor();
+cursorLoop();
 
-document.querySelectorAll('a, .video, button').forEach(el => {
+document.querySelectorAll('a, .video-frame').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('active'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 });
 
-/* SCROLL STORY */
+/* ================= SCROLL STORY ================= */
 const stories = document.querySelectorAll('.story');
 window.addEventListener('scroll', () => {
   stories.forEach(el => {
@@ -29,8 +29,3 @@ window.addEventListener('scroll', () => {
     }
   });
 });
-
-/* DARK / LIGHT TOGGLE */
-function toggleMode() {
-  document.body.classList.toggle('dark');
-}
