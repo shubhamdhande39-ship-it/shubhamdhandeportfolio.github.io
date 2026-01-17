@@ -1,27 +1,20 @@
-/* ================= CURSOR FLOW ================= */
+/* ================= DPI ACCURATE CURSOR ================= */
 const cursor = document.querySelector('.cursor');
-let cx = 0, cy = 0, tx = 0, ty = 0;
 
 document.addEventListener('mousemove', e => {
-  tx = e.clientX;
-  ty = e.clientY;
+  cursor.style.transform =
+    `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
 });
 
-function cursorLoop() {
-  cx += (tx - cx) * 0.18;
-  cy += (ty - cy) * 0.18;
-  cursor.style.transform = `translate(${cx}px, ${cy}px)`;
-  requestAnimationFrame(cursorLoop);
-}
-cursorLoop();
-
-document.querySelectorAll('a, .video-frame').forEach(el => {
+/* Hover scale */
+document.querySelectorAll('a, .card, .video-frame').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('active'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 });
 
 /* ================= SCROLL STORY ================= */
 const stories = document.querySelectorAll('.story');
+
 window.addEventListener('scroll', () => {
   stories.forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight - 120) {
