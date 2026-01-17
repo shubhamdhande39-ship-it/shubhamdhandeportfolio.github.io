@@ -1,11 +1,21 @@
-/* CURSOR */
+/* CURSOR FLOW */
 const cursor = document.querySelector('.cursor');
+let x = 0, y = 0, tx = 0, ty = 0;
+
 document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
+  tx = e.clientX;
+  ty = e.clientY;
 });
 
-document.querySelectorAll('a, .card, .video').forEach(el => {
+function animateCursor() {
+  x += (tx - x) * 0.15;
+  y += (ty - y) * 0.15;
+  cursor.style.transform = `translate(${x}px, ${y}px)`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a, .video, button').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('active'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 });
@@ -19,3 +29,8 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+/* DARK / LIGHT TOGGLE */
+function toggleMode() {
+  document.body.classList.toggle('dark');
+}
