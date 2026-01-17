@@ -2,103 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Shubham Dhande</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shubham Dhande | Motion Graphic Artist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@500&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;cursor:none}
-body{background:#945be9;color:#fff;font-family:'Poppins',sans-serif}
-
-/* NAV */
-nav{
-  position:fixed;top:28px;width:100%;
-  display:flex;justify-content:center;gap:24px;z-index:10
-}
-nav a{
-  color:#fff;text-decoration:none;
-  padding:10px 22px;border-radius:24px
-}
-nav a.active,nav a:hover{background:#000}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center
-}
-.hero h1{
-  font-family:'Permanent Marker',cursive;
-  font-size:96px;
-  white-space:nowrap;
-  overflow:hidden;
-  border-right:4px solid #fff;
-  width:0;
-  animation:typing 3.5s steps(20,end) forwards,
-           blink .8s infinite
-}
-@keyframes typing{
-  from{width:0}
-  to{width:100%}
-}
-@keyframes blink{
-  50%{border-color:transparent}
-}
-.hero p{font-size:18px;margin-top:16px}
-
-/* FOOTER */
-footer{
-  position:fixed;bottom:24px;width:100%;
-  display:flex;justify-content:center;gap:24px;
-  font-size:26px
-}
-
-/* CURSOR */
-.cursor{
-  width:18px;height:18px;border-radius:50%;
-  background:#fff;position:fixed;
-  transform:translate(-50%,-50%);
-  pointer-events:none;z-index:9999
-}
-.cursor.active{width:36px;height:36px;background:#000}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="page">
 
 <nav>
   <a class="active" href="index.html">Home</a>
   <a href="about.html">About Me</a>
   <a href="work.html">My Work</a>
-  <a href="about.html#contact">Contact Me</a>
+  <a href="#contact">Contact Me</a>
+  <a onclick="toggleMode()">🌓</a>
 </nav>
 
-<section class="hero">
-  <h1>Shubham Dhande</h1>
-  <p>Motion Graphic Artist</p>
+<section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+  <!-- SVG Handwriting -->
+  <svg width="800" height="120" viewBox="0 0 800 120">
+    <path
+      d="M10 80 Q 150 10 300 80 T 590 80"
+      fill="none"
+      stroke="white"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-dasharray="1200"
+      stroke-dashoffset="1200">
+      <animate attributeName="stroke-dashoffset"
+        from="1200" to="0" dur="3s" fill="freeze" />
+    </path>
+  </svg>
+
+  <p style="margin-top:20px;font-size:20px;font-weight:600;">
+    Motion Graphic Artist
+  </p>
 </section>
 
-<footer>
-  <i class='bx bxl-behance'></i>
-  <i class='bx bxl-linkedin'></i>
+<footer id="contact">
+  📞 8169042191 &nbsp;&nbsp; ✉️ shubhamdhande39@gmail.com
 </footer>
 
 <div class="cursor"></div>
-
-<script>
-const c=document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{
-  c.style.left=e.clientX+'px';
-  c.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,i').forEach(el=>{
-  el.onmouseenter=()=>c.classList.add('active');
-  el.onmouseleave=()=>c.classList.remove('active');
-});
-</script>
-
+<script src="script.js"></script>
+</div>
 </body>
 </html>
