@@ -9,37 +9,17 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  background:#fff;
-  color:#000;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;cursor:none;}
+body{background:#fff;color:#000;font-family:'Poppins',sans-serif;}
+.section{padding:80px 10%;}
+.video{display:flex;justify-content:center;margin-top:40px;}
+iframe{width:360px;height:640px;border-radius:16px;border:none;}
+.footer{display:flex;justify-content:center;gap:30px;font-size:26px;margin-top:80px;}
 
-.section{
-  padding:80px 10%;
-}
-
-.video{
-  display:flex;
-  justify-content:center;
-  margin-top:40px;
-}
-
-iframe{
-  width:360px;
-  height:640px;
-  border-radius:16px;
-  border:none;
-}
-
-.footer{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  font-size:26px;
-  margin-top:80px;
-}
+.cursor{width:18px;height:18px;border-radius:50%;background:#000;
+  position:fixed;pointer-events:none;transform:translate(-50%,-50%);
+  transition:.2s;z-index:9999;}
+.cursor.active{width:36px;height:36px;background:#945be9;}
 </style>
 </head>
 
@@ -57,6 +37,20 @@ iframe{
     <i class='bx bxl-linkedin'></i>
   </div>
 </section>
+
+<div class="cursor"></div>
+
+<script>
+const cursor=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+  cursor.style.left=e.clientX+'px';
+  cursor.style.top=e.clientY+'px';
+});
+document.querySelectorAll('i').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursor.classList.add('active'));
+  el.addEventListener('mouseleave',()=>cursor.classList.remove('active'));
+});
+</script>
 
 </body>
 </html>
