@@ -1,106 +1,27 @@
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  cursor: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --purple: #945be9;
-  --green: #108e06;
-  --white: #ffffff;
-  --black: #000000;
-}
-
-/* ================= BODY ================= */
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--white);
-  background: var(--purple);
-  transition: background 0.6s ease, color 0.6s ease;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 40%),
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.025),
-      rgba(255,255,255,0.025) 1px,
-      transparent 1px,
-      transparent 6px
-    );
-}
-
-/* ================= NAV ================= */
-nav {
-  position: fixed;
-  top: 26px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  z-index: 50;
-}
-
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  padding: 10px 22px;
-  border-radius: 24px;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-nav a.active,
-nav a:hover {
-  background: var(--black);
-}
-
-/* ================= FOOTER ================= */
-footer {
-  position: fixed;
-  bottom: 22px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  font-size: 15px;
-  font-weight: 500;
-}
-
 /* ================= CURSOR ================= */
 .cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: var(--white);
-  position: fixed;
+
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.15s ease, background 0.3s ease;
+
+  /* Critical for DPI accuracy */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+
+  transition:
+    background 0.2s ease,
+    transform 0.12s ease;
 }
 
 .cursor.active {
-  transform: scale(2.4);
-  background: var(--black);
+  transform: scale(2);
+  background: #000;
 }
-
-/* ================= PAGE TRANSITION ================= */
-.page {
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* ================= SCROLL STORY ================= */
-.story {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s eas
