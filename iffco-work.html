@@ -2,53 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IFFCO | My Work</title>
+<title>IFFCO Fertilizer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;cursor:none;}
-body{background:#fff;color:#000;font-family:'Poppins',sans-serif;}
-.section{padding:80px 10%;}
-.video{display:flex;justify-content:center;margin-top:40px;}
-iframe{width:360px;height:640px;border-radius:16px;border:none;}
-.footer{display:flex;justify-content:center;gap:30px;font-size:26px;margin-top:80px;}
-
-.cursor{width:18px;height:18px;border-radius:50%;background:#000;
-  position:fixed;pointer-events:none;transform:translate(-50%,-50%);
-  transition:.2s;z-index:9999;}
-.cursor.active{width:36px;height:36px;background:#945be9;}
+body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:#000}
+.section{padding:100px 10%}
+h1{margin-bottom:40px}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px
+}
+.video{
+  border:3px solid #108e06;border-radius:16px;overflow:hidden
+}
+iframe{width:100%;height:360px;border:none}
+.story{opacity:0;transform:translateY(40px);transition:.9s}
+.story.active{opacity:1;transform:translateY(0)}
 </style>
 </head>
 
 <body>
 
 <section class="section">
-  <h1 style="text-align:center;">My Work</h1>
+  <h1 class="story">IFFCO Fertilizer</h1>
 
-  <div class="video">
-    <iframe src="https://www.youtube.com/embed/7ED9bBq96Sg" allowfullscreen></iframe>
-  </div>
-
-  <div class="footer">
-    <i class='bx bxl-behance'></i>
-    <i class='bx bxl-linkedin'></i>
+  <div class="grid story">
+    <iframe src="https://www.youtube.com/embed/mXjoYqRw4G0"></iframe>
+    <iframe src="https://www.youtube.com/embed/TYZYnThMcFs"></iframe>
+    <iframe src="https://www.youtube.com/embed/2E1YZH5NYlQ"></iframe>
+    <iframe src="https://www.youtube.com/embed/xoBZ6fw6YSY"></iframe>
+    <iframe src="https://www.youtube.com/embed/A1FC5Sk5r18"></iframe>
+    <iframe src="https://www.youtube.com/embed/d2NL1FbOdRE"></iframe>
   </div>
 </section>
 
-<div class="cursor"></div>
-
 <script>
-const cursor=document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{
-  cursor.style.left=e.clientX+'px';
-  cursor.style.top=e.clientY+'px';
+document.querySelectorAll('.story').forEach(el=>{
+  if(el.getBoundingClientRect().top<window.innerHeight-120)el.classList.add('active')
 });
-document.querySelectorAll('i').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cursor.classList.add('active'));
-  el.addEventListener('mouseleave',()=>cursor.classList.remove('active'));
+window.addEventListener('scroll',()=>{
+  document.querySelectorAll('.story').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-120)el.classList.add('active')
+  });
 });
 </script>
 
