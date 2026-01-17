@@ -7,6 +7,57 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* IFFCO CARD */
+.iffco-card {
+  width: 280px;
+  height: 750px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 28px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.iffco-card img {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.iffco-card p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* VIDEO SECTION */
+.video-section {
+  display: none;
+  background: #108e06;
+  padding: 120px 10%;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.video-frame {
+  aspect-ratio: 9 / 16;
+  background: #ffffff;
+  border: 20px solid #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
 </head>
 
 <body>
@@ -18,10 +69,36 @@
   <a href="#contact">Contact Me</a>
 </nav>
 
-<section class="section">
-  <h1>IFFCO Fertilizer</h1>
+<!-- IFFCO INTRO -->
+<section class="section" style="display:flex;justify-content:center;">
+  <div class="iffco-card" onclick="showVideos()">
+    <div style="
+      width:86px;height:86px;border-radius:50%;
+      border:8px solid #000;
+      display:flex;align-items:center;justify-content:center;
+      font-size:28px;margin:0 auto 20px;
+    ">
+      01
+    </div>
 
-  <div class="video-grid" style="margin-top:40px;">
+    <img src="IFFCO.jpg" alt="IFFCO Fertilizer">
+
+    <p>
+      Worked on the creation of AI-powered promotional and informational videos
+      for IFFCO Fertilizer, focusing on visually explaining agricultural
+      processes, product benefits, and farmer-centric messaging.
+      <br><br>
+      Handled AI-based visual generation, motion design, scene composition,
+      and narrative flow, ensuring accuracy and strong storytelling.
+    </p>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="videoSection">
+  <h1 style="color:#ffffff;margin-bottom:40px;">IFFCO Fertilizer Videos</h1>
+
+  <div class="video-grid">
     <div class="video-frame"><iframe src="https://www.youtube.com/embed/mXjoYqRw4G0"></iframe></div>
     <div class="video-frame"><iframe src="https://www.youtube.com/embed/TYZYnThMcFs"></iframe></div>
     <div class="video-frame"><iframe src="https://www.youtube.com/embed/2E1YZH5NYlQ"></iframe></div>
@@ -34,6 +111,13 @@
 <footer id="contact">
   📞 8169042191 &nbsp;&nbsp; ✉️ shubhamdhande39@gmail.com
 </footer>
+
+<script>
+function showVideos() {
+  document.getElementById('videoSection').style.display = 'block';
+  document.getElementById('videoSection').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
