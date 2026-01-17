@@ -5,42 +5,7 @@
 <title>My Work</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-
-<style>
-body{margin:0;background:#0b0b0b;color:#fff;font-family:'Poppins',sans-serif}
-nav{position:fixed;top:28px;width:100%;display:flex;justify-content:center;gap:24px}
-nav a{color:#fff;text-decoration:none;padding:10px 22px;border-radius:24px}
-nav a.active,nav a:hover{background:#000}
-.section{padding:140px 10%}
-.badge{
-  width:86px;height:86px;border-radius:50%;
-  border:8px solid #fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:28px;margin-bottom:40px
-}
-.card{
-  width:280px;height:750px;border:3px solid #108e06;
-  border-radius:20px;padding:20px;cursor:pointer;transition:.4s
-}
-.card:hover{transform:scale(1.05)}
-.overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.6);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:.4s
-}
-.overlay.active{opacity:1;pointer-events:auto}
-.modal{
-  background:#0b0b0b;border:3px solid #108e06;
-  border-radius:24px;padding:40px;text-align:center;
-  transform:scale(.8);transition:.4s
-}
-.overlay.active .modal{transform:scale(1)}
-button{
-  margin-top:20px;padding:12px 24px;border:none;
-  background:#108e06;color:#fff;border-radius:30px;cursor:pointer
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -49,34 +14,45 @@ button{
   <a href="index.html">Home</a>
   <a href="about.html">About Me</a>
   <a class="active" href="work.html">My Work</a>
-  <a href="about.html#contact">Contact Me</a>
+  <a href="#contact">Contact Me</a>
 </nav>
 
-<section class="section">
-  <div class="badge">01</div>
+<section style="padding:140px 10%;display:flex;justify-content:center;">
+  <div class="card story" onclick="location.href='iffco-work.html'" style="
+    width:280px;
+    height:750px;
+    background:#fff;
+    color:#000;
+    border-radius:28px;
+    padding:24px;
+    text-align:center;
+  ">
+    <div style="
+      width:86px;height:86px;border-radius:50%;
+      border:8px solid #000;
+      display:flex;align-items:center;justify-content:center;
+      font-size:28px;margin:0 auto 24px;
+    ">
+      01
+    </div>
 
-  <div class="card" onclick="openCard()">
-    <img src="IFFCO.jpg" style="width:100%;margin-bottom:20px">
-    <p>
-      Created AI-driven motion videos for IFFCO Fertilizer, including product
-      animations and agricultural visuals designed to enhance farmer engagement
-      and brand communication.
+    <img src="IFFCO.jpg" style="width:100%;margin-bottom:20px;">
+
+    <p style="line-height:1.8;font-size:15px;">
+      Created AI-driven motion videos for IFFCO Fertilizer,
+      including product animations and agricultural visuals
+      designed to enhance farmer engagement and brand communication.
     </p>
   </div>
 </section>
 
-<div class="overlay" id="overlay" onclick="closeCard()">
-  <div class="modal" onclick="event.stopPropagation()">
-    <h2>IFFCO Fertilizer</h2>
-    <p>AI-powered agricultural storytelling & product visuals.</p>
-    <button onclick="location.href='iffco-work.html'">View Project →</button>
-  </div>
-</div>
+<footer id="contact">
+  <span>📞 8169042191</span>
+  <span>✉️ shubhamdhande39@gmail.com</span>
+</footer>
 
-<script>
-function openCard(){overlay.classList.add('active')}
-function closeCard(){overlay.classList.remove('active')}
-</script>
+<div class="cursor"></div>
+<script src="script.js"></script>
 
 </body>
 </html>
