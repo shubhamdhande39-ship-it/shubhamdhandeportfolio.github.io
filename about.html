@@ -5,73 +5,43 @@
 <title>About Me</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-<style>
-*{cursor:none}
-body{
-  margin:0;font-family:'Poppins',sans-serif;color:#fff;
-  background:#945be9;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,.06), transparent 40%);
-}
-nav,footer{position:fixed;width:100%;display:flex;justify-content:center;gap:24px}
-nav{top:28px}
-footer{bottom:24px;font-size:26px}
-nav a{color:#fff;text-decoration:none;padding:10px 22px;border-radius:24px}
-nav a.active,nav a:hover{background:#000}
-.section{padding:120px 12%}
-h1{font-size:40px;font-weight:700;margin-bottom:24px}
-p{font-size:20px;line-height:1.7;max-width:900px}
-
-/* CURSOR */
-.cursor{width:18px;height:18px;border-radius:50%;background:#fff;position:fixed;pointer-events:none}
-.cursor.active{width:36px;height:36px;background:#000}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="page">
 
 <nav>
   <a href="index.html">Home</a>
   <a class="active" href="about.html">About Me</a>
   <a href="work.html">My Work</a>
   <a href="#contact">Contact Me</a>
+  <a onclick="toggleMode()">🌓</a>
 </nav>
 
-<section class="section">
-  <h1>About Me</h1>
-  <p>
+<section style="padding:140px 12%;">
+  <h1 class="story" style="font-size:40px;font-weight:700;">
+    About<br>Me
+  </h1>
+
+  <p class="story" style="font-size:20px;line-height:1.8;max-width:900px;margin-top:24px;">
     I am a Motion Graphic Designer specializing in cinematic motion graphics,
     AI-driven visuals, and high-impact video content. My work focuses on
     transforming ideas into compelling visual stories that connect with
-    audiences emotionally and visually. I enjoy exploring new tools and
-    workflows, especially AI-assisted techniques, to push creative boundaries
-    while maintaining clean, professional execution. My goal is to deliver
-    visuals that are not only engaging but also aligned with the brand’s
-    message and intent.
+    audiences emotionally and visually.
+    <br><br>
+    I enjoy exploring new tools and workflows, especially AI-assisted techniques,
+    to push creative boundaries while maintaining clean, professional execution.
   </p>
 </section>
 
-<footer>
-  <i class='bx bxl-behance'></i>
-  <i class='bx bxl-linkedin'></i>
+<footer id="contact">
+  📞 8169042191 &nbsp;&nbsp; ✉️ shubhamdhande39@gmail.com
 </footer>
 
 <div class="cursor"></div>
-
-<script>
-const c=document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{
-  c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,i').forEach(el=>{
-  el.onmouseenter=()=>c.classList.add('active');
-  el.onmouseleave=()=>c.classList.remove('active');
-});
-</script>
-
+<script src="script.js"></script>
+</div>
 </body>
 </html>
