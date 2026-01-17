@@ -1,27 +1,235 @@
-/* ================= CURSOR ================= */
+/* =====================================================
+   RESET & BASE
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =====================================================
+   DESIGN TOKENS
+===================================================== */
+:root {
+  --purple: #945be9;
+  --green: #108e06;
+  --white: #ffffff;
+  --black: #000000;
+  --text: #ffffff;
+}
+
+/* =====================================================
+   BODY + PREMIUM TEXTURE
+===================================================== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--purple);
+  color: var(--text);
+  min-height: 100vh;
+
+  /* Premium texture */
+  background-image:
+    radial-gradient(circle at 18% 28%, rgba(255,255,255,0.08), transparent 42%),
+    radial-gradient(circle at 82% 72%, rgba(255,255,255,0.06), transparent 42%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.025),
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+/* =====================================================
+   PAGE TRANSITION
+===================================================== */
+.page {
+  opacity: 0;
+  animation: pageFade 0.8s ease forwards;
+}
+
+@keyframes pageFade {
+  to { opacity: 1; }
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+nav {
+  position: fixed;
+  top: 26px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  z-index: 50;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 24px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--black);
+}
+
+/* =====================================================
+   FOOTER / CONTACT
+===================================================== */
+footer {
+  position: fixed;
+  bottom: 22px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 40;
+}
+
+/* =====================================================
+   TYPOGRAPHY HELPERS
+===================================================== */
+.section {
+  padding: 140px 10%;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.8;
+  max-width: 900px;
+}
+
+/* =====================================================
+   SCROLL STORYTELLING
+===================================================== */
+.story {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.story.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   WORK CARD (IFFCO)
+===================================================== */
+.card {
+  width: 280px;
+  height: 750px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 28px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Badge (01) */
+.badge {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 8px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 24px;
+}
+
+/* =====================================================
+   VIDEO GRID + FRAMES
+===================================================== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* 1080x1920 Frame */
+.video-frame {
+  aspect-ratio: 9 / 16;
+  border: 20px solid var(--white);
+  border-radius: 28px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* =====================================================
+   DPI-ACCURATE CURSOR (NO LAG)
+===================================================== */
 .cursor {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: var(--white);
-
   pointer-events: none;
   z-index: 9999;
 
   /* Critical for DPI accuracy */
   will-change: transform;
-  transform: translate3d(0, 0, 0);
-
-  transition:
-    background 0.2s ease,
-    transform 0.12s ease;
+  transform: translate3d(0,0,0);
 }
 
 .cursor.active {
   transform: scale(2);
-  background: #000;
+  background: var(--black);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 18px;
+  }
 }
