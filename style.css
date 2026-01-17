@@ -12,7 +12,6 @@ body {
   color: #ffffff;
   min-height: 100vh;
 
-  /* subtle premium texture */
   background-image:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 40%);
@@ -52,11 +51,6 @@ h1 {
   font-weight: 700;
 }
 
-p {
-  font-size: 16px;
-  line-height: 1.7;
-}
-
 /* ABOUT TITLE */
 .about-title {
   font-size: 50px;
@@ -64,10 +58,23 @@ p {
   line-height: 1.1;
 }
 
-/* CONTACT */
-.contact {
-  margin-top: 40px;
+/* TEXT */
+p {
   font-size: 16px;
+  line-height: 1.7;
+  max-width: 900px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  display: none;
+  text-align: center;
+}
+
+.contact-section p {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 12px 0;
 }
 
 /* FOOTER */
@@ -159,11 +166,11 @@ footer a {
     grid-template-columns: 1fr;
   }
 
-  h1 {
-    font-size: 32px;
-  }
-
   .about-title {
     font-size: 40px;
+  }
+
+  .contact-section p {
+    font-size: 22px;
   }
 }
